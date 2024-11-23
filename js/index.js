@@ -27,7 +27,7 @@ document.getElementById('square-btn').addEventListener('click', async () => {
     const inputElement = document.getElementById('number-input');
     const resultElement = document.getElementById('result');
 
-    // Get the number from the input field
+    // Get the number from the input field.
     const num = inputElement.value;
 
     // Validate the input
