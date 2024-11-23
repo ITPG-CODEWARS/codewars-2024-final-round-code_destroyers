@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+    <div class="register-container">
+        <h1>Нпарвете си профил</h1>
+        <form id="registerForm" class="register-form">
+            <div class="form-group">
+                <label for="username">Име</label>
+                <input type="text" id="username" name="username" placeholder="Въведете име. Пример:user123" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Имейл</label>
+                <input type="email" id="email" name="email" placeholder="Въведете имейл. Пример:user123@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Парола</label>
+                <input type="password" id="password" name="password" placeholder="Въведете парола" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Потвърдете паролата</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Потвърдете паролата" required>
+            </div>
+
+            <button type="submit" class="cta-button">Регистриране</button>
+        </form>
+        <p class="login-link">Имате акаунт? <a href="login.html">Влезте в профила си</a></p>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
