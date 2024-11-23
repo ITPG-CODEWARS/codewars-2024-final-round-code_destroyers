@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Train Route Management</title>
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+    <h1>Admin Train Route Management</h1>
+
+    <!-- Table for Route Details -->
+    <table id="routeTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Estimated Time</th>
+                <th>Boarding Time</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <!-- Form for Adding/Editing Routes -->
+    <form id="routeForm">
+        <input type="text" id="routeStart" placeholder="Route Start" required>
+        <input type="text" id="routeEnd" placeholder="Route End" required>
+        <input type="number" id="routeEstimate" placeholder="Estimated Time (Minutes)" required>
+        <input type="datetime-local" id="bordingTime" placeholder="Boarding Time">
+        <input type="datetime-local" id="departureTime" placeholder="Departure Time">
+        <input type="datetime-local" id="arrivalTime" placeholder="Arrival Time">
+        <div class="form-actions">
+            <button type="button" id="addRoute">Add Route</button>
+            <button type="button" id="updateRoute" style="display: none;">Update Route</button>
+        </div>
+    </form>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
