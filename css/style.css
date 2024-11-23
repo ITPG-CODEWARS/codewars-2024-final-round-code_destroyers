@@ -18,7 +18,17 @@
     background: var(--bg-color);
 
     header {
+      display: flex;
       label {
+        font-size: 32;
+        margin: auto;
+      }
+
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        margin: auto;
       }
     }
   }
