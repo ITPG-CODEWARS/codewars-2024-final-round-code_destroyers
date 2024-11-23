@@ -2,8 +2,8 @@ import os
 import json
 
 config = {
-    "host": "",
-    "port": 69420
+    "host": "192.168.22.163",
+    "port": 5000
 }
 
 # Initialize the config file
@@ -19,6 +19,8 @@ def loadConfig():
         for i in d: config[i] = d[i]
         openfile.write(json.dumps(config, indent="\t"))
         openfile.close()
+        
+    return config
         
 
 if __name__ == "__main__":
