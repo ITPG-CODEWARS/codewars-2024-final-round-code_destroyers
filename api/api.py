@@ -34,10 +34,21 @@ class GetNewTrainData(Resource):
         data.set_arrival_time("20:30")
         database.insert_train_data(data)
         return jsonify({'message': data.get_as_dict()})
+    
+class GetAllTrainData(Resource):
+    def get(self):
+        data = database.get_all_train_data()
+        response = []
+        for i in data:
+            response.append(i.get_as_dict())
+            
+        return jsonify({'message': response})
+            
   
 
 api.add_resource(Square, '/square/<int:num>')
 api.add_resource(GetNewTrainData, '/getnewtraindata')
+api.add_resource(GetAllTrainData, '/getalltraindata')
 
 
 # data: utils.TrainObj = utils.TrainObj()
