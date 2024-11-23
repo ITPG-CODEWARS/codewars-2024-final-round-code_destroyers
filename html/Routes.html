@@ -1,20 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Маршрути - CodeDestroyers</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <header class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-train"></i>Train Destroyers
+        </div>
+        <nav class="navbar-links">
+            <a href="index.html">Начало</a>
+            <a href="register.html">Регистрация</a>
+            <a href="login.html">Вход</a>
+            <a href="chat.html">Чат</a>
+        </nav>
+    </header>
     
+    <!-- Routes Container -->
+    <div class="container">
+        <main class="content">
+            <h1>Маршрути</h1>
+            <p>Тук можете да разгледате и управлявате всички маршрути на влаковете.</p>
 
-
-
-
-
-
-
+            <!-- Add Route Button -->
+            <button class="cta-button" onclick="window.location.href='add_route.html'">Добави нов маршрут</button>
+            
+            <!-- Routes List -->
+            <div class="routes-list">
+                <h2>Списък с маршрути</h2>
+                <ul>
+                    <li>
+                        <strong>Маршрут 1:</strong> София - Пловдив
+                        <button class="cta-button">Подробности</button>
+                    </li>
+                    <li>
+                        <strong>Маршрут 2:</strong> Варна - Бургас
+                        <button class="cta-button">Подробности</button>
+                    </li>
+                    <li>
+                        <strong>Маршрут 3:</strong> Пловдив - Велико Търново
+                        <button class="cta-button">Подробности</button>
+                    </li>
+                    <!-- More routes can go here -->
+                </ul>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 CodeDestroyers. Всички права са запазени</p>
+    </footer>
+    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 </body>
 </html>

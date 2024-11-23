@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добави нов маршрут</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-train"></i> Приложение за влакове
+        </div>
+        <nav class="navbar-links">
+            <a href="register.html">Регистрация</a>
+            <a href="login.html">Вход</a>
+            <a href="Routes.html">Маршрути</a>
+            <a href="chat.html">Чат</a>
+        </nav>
+    </header>
+    
+    <!-- Add Route Form -->
+    <div class="container">
+        <main class="content">
+            <h1>Добави нов маршрут</h1>
+            <form action="add_route_submit.html" method="POST">
+                <div class="form-group">
+                    <label for="routeName">Име на маршрут</label>
+                    <input type="text" id="routeName" name="routeName" placeholder="Въведете име на маршрут" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="startStation">Начална спирка</label>
+                    <input type="text" id="startStation" name="startStation" placeholder="Въведете начална спирка" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endStation">Крайна спирка</label>
+                    <input type="text" id="endStation" name="endStation" placeholder="Въведете крайна спирка" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Време на заминаване</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+
+                <button type="submit" class="cta-button">Добави маршрут</button>
+            </form>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 CodeDestroyers. Всички права са запазени</p>
+    </footer>
+</body>
+</html>
