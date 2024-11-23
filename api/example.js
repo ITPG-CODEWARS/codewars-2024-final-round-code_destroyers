@@ -15,6 +15,21 @@ const getSquare = async (num) => {
     return response
 }
 
-getSquare(4).then(response => {
+const getNewTrainData = async () => {
+    let response
+    try {
+        response = await axios.get(`http://${hostname}:${port}/getnewtraindata`)
+    } catch (error) {
+        console.error('Error making GET request:', error);
+        throw new Error('Error making GET request:', error)
+    }
+    return response
+}
+
+// getSquare(4).then(response => {
+//     console.log(response.data);
+// });
+
+getNewTrainData().then(response => {
     console.log(response.data);
 });

@@ -3,7 +3,12 @@ import json
 
 config = {
     "host": "192.168.22.163",
-    "port": 5000
+    "port": 5000,
+    "database": {
+        "db_name": "database",
+        "hostname": "localhost",
+        "port": 27017
+    }
 }
 
 # Initialize the config file
