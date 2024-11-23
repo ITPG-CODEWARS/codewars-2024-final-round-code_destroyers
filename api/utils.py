@@ -1,4 +1,5 @@
 import json
+import uuid
 import time
 import sys
 import os
@@ -6,14 +7,14 @@ import os
 from init import loadConfig
 
 class TrainObj:
-    def __init__(self):
-        self.routeId: str = None
-        self.routeStart: str = None
-        self.routeEnd: str = None
-        self.routeEstimate: str = None
-        self.bordingTime: str = None
-        self.departureTime: str = None
-        self.arrivalTime: str = None
+    def __init__(self, routeID: str = None, routeStart: str = None, routeEnd: str = None, routeEstimate: str = None, bordingTime: str = None, departureTime: str = None, arrivalTime: str = None):
+        self.routeID: str = uuid.uuid4().hex[:getFromConfig("uuid_length")]
+        self.routeStart: str = routeStart
+        self.routeEnd: str = routeEnd
+        self.routeEstimate: str = routeEstimate
+        self.bordingTime: str = bordingTime
+        self.departureTime: str = departureTime
+        self.arrivalTime: str = arrivalTime
 
     def set_route_start(self, route_start: str):
         self.routeStart = route_start
@@ -53,6 +54,7 @@ class TrainObj:
 
     def get_as_dict(self) -> dict:
         return {
+            "routeID": self.routeID,
             "routeStart": self.routeStart,
             "routeEnd": self.routeEnd,
             "routeEstimate": self.routeEstimate,
