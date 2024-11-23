@@ -3,7 +3,9 @@ import api
 
 def main():
     config = loadConfig()
-    api.app.run(debug=True)
+    print(config)
+    api.main()
+    
 
 if __name__ == '__main__':
     main()
