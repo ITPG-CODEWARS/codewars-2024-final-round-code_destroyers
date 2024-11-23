@@ -39,3 +39,41 @@ const getTrainData = async (start, end) => {
 getTrainData('Kolkata', 'Delhi').then(response => {
     console.log(response.data);
 });
+
+// chat "functionallity"
+document.getElementById('send-btn').addEventListener('click', sendMessage);
+
+function sendMessage() {
+    let messageInput = document.getElementById('message');
+    let message = messageInput.value;
+
+    if (message.trim() === "") {
+        return;
+    }
+
+    // Create message element
+    let messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message', 'user');
+    messageElement.innerText = message;
+
+    // Append message to chat box
+    let chatBox = document.getElementById('chat-box');
+    chatBox.appendChild(messageElement);
+
+    // Scroll to bottom
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Clear input field
+    messageInput.value = "";
+}
+
+// Optional: To simulate a bot response
+setInterval(() => {
+    let botMessage = document.createElement('div');
+    botMessage.classList.add('chat-message');
+    botMessage.innerText = "Bot: Вашето съобщение беше получено!";
+
+    let chatBox = document.getElementById('chat-box');
+    chatBox.appendChild(botMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}, 5000); // Bot responds every 5 seconds

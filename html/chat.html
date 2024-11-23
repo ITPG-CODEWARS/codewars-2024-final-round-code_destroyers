@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Чат с екипа.</title>
+    <title>Чат - CodeDestroyers</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
-    <div class="chat-container">
-        <div class="chat-box" id="chatBox">
-
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-train"></i>Train Destroyers
         </div>
-        <form id="chatForm">
-            <input type="text" id="messageInput" placeholder="Напишете съобщение" required>
-            <button type="submit" id="sendMessage">Изпрати</button>
-        </form>
+        <nav class="navbar-links">
+            <a href="register.html">Регистрация</a>
+            <a href="login.html">Вход</a>
+            <a href="Routes.html">Маршрути</a>
+            <a href="chat.html">Чат</a>
+        </nav>
+    </header>
+    
+    <!-- Chat Container -->
+    <div class="container">
+        <main class="content">
+            <h1>Чат</h1>
+            <div class="chat-container">
+                <!-- Chat messages -->
+                <div class="chat-box" id="chat-box">
+                    <!-- Messages will appear here dynamically -->
+                </div>
+
+                <!-- Message input -->
+                <div class="chat-input-container">
+                    <input type="text" id="message" placeholder="Напишете съобщение..." class="chat-input" autocomplete="off">
+                    <button id="send-btn" class="send-btn">Изпрати</button>
+                </div>
+            </div>
+        </main>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 CodeDestroyers. Всички права са запазени</p>
+    </footer>
 
-
-    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="../js/chat.js"></script>
 </body>
 </html>
