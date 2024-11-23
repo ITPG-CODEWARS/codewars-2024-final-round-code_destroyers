@@ -1,13 +1,13 @@
 // Example CODE
 const axios = require('axios');
 
-const hostname = '192.168.22.163'
+const hostname = 'localhost'
 const port = 5000
 
-const getRequests = async (resource) => {
+const getTrainData = async (start, end) => {
     let response
     try {
-        response = await axios.get(`http://${hostname}:${port}/getTrainData/${resource}`)
+        response = await axios.get(`http://${hostname}:${port}/getalltraindata/${start}/${end}`);
     } catch (error) {
         console.error('Error making GET request:', error);
         throw new Error('Error making GET request:', error)
@@ -15,6 +15,6 @@ const getRequests = async (resource) => {
     return response
 }
 
-getRequests('getalltraindata').then(response => {
+getTrainData('Kolkata', 'Delhi').then(response => {
     console.log(response.data);
 });

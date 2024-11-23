@@ -8,7 +8,8 @@ config = {
         "db_name": "database",
         "hostname": "localhost",
         "port": 27017
-    }
+    },
+	"uuid_length": 12
 }
 
 # Initialize the config file
