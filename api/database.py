@@ -1,4 +1,3 @@
-
 import sqlite3
 
 import utils
@@ -14,7 +13,7 @@ cursor = conn.cursor()
 
 # Create database table
 database_base = '''
-    CREATE TABLE IF NOT EXISTS urls (
+    CREATE TABLE IF NOT EXISTS trains (
         routeID TEXT PRIMARY KEY NOT NULL,
         routeStart TEXT NOT NULL,
         routeEnd TEXT NOT NULL,
@@ -32,32 +31,35 @@ conn.commit()
 ######################
 
 def insert_train_data(data: utils.TrainObj) -> None:
-    cursor.execute('INSERT INTO urls (trainId, routeStart, routeEnd, routeEstimate, bordingTime, departureTime, arrivalTime) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    cursor.execute('INSERT INTO trains (routeID, routeStart, routeEnd, routeEstimate, bordingTime, departureTime, arrivalTime) VALUES (?, ?, ?, ?, ?, ?, ?)',
                    (data.routeID, data.routeStart, data.routeEnd, data.routeEstimate, data.bordingTime, data.departureTime, data.arrivalTime))
     conn.commit()
 
     
 def get_train_data(routeID: str) -> utils.TrainObj:
-    cursor.execute('SELECT * FROM urls WHERE trainId = ?', (routeID,))
+    cursor.execute('SELECT * FROM trains WHERE trainId = ?', (routeID,))
     result = cursor.fetchone()
     return utils.TrainObj(result[0], result[1], result[2], result[3], result[4], result[5], result[6]) if result else None
 
 
-def get_train_data(routeStart: str, routeEnd: str) -> utils.TrainObj:
-    cursor.execute('SELECT * FROM urls WHERE routeStart = ? AND routeEnd = ?', (routeStart, routeEnd))
-    result = cursor.fetchone()
-    return utils.TrainObj(result[0], result[1], result[2], result[3], result[4], result[5], result[6]) if result else None
+def get_train_data(routeStart: str, routeEnd: str) -> list[utils.TrainObj]:
+    cursor.execute('SELECT * FROM trains WHERE routeStart = ? AND routeEnd = ?', (routeStart, routeEnd))
+    return [utils.TrainObj(routeID, routeStart, routeEnd, routeEstimate, bordingTime, departureTime, arrivalTime) for routeID, routeStart, routeEnd, routeEstimate, bordingTime, departureTime, arrivalTime in cursor.fetchall()]
 
 
 def get_all_train_data() -> list[utils.TrainObj]:
-    cursor.execute('SELECT * FROM urls')
+    cursor.execute('SELECT * FROM trains')
     return [utils.TrainObj(routeID, routeStart, routeEnd, routeEstimate, bordingTime, departureTime, arrivalTime) for routeID, routeStart, routeEnd, routeEstimate, bordingTime, departureTime, arrivalTime in cursor.fetchall()]
 
 
 def delete_train_data(routeID: str) -> None:
-    cursor.execute('DELETE FROM urls WHERE trainId = ?', (routeID,))
+    cursor.execute('DELETE FROM trains WHERE trainId = ?', (routeID,))
     conn.commit()
 
+
+def purge_train_data() -> None:
+    cursor.execute('DELETE FROM trains')
+    conn.commit()
 
 # Test the database functions    
 if __name__ == '__main__':

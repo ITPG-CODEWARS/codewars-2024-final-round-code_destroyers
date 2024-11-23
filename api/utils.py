@@ -1,13 +1,12 @@
 import json
 import uuid
 import time
-import sys
 import os
 
 from init import loadConfig
 
 class TrainObj:
-    def __init__(self, routeID: str = None, routeStart: str = None, routeEnd: str = None, routeEstimate: str = None, bordingTime: str = None, departureTime: str = None, arrivalTime: str = None):
+    def __init__(self, routeStart: str = None, routeEnd: str = None, routeEstimate: str = None, bordingTime: str = None, departureTime: str = None, arrivalTime: str = None):
         self.routeID: str = uuid.uuid4().hex[:getFromConfig("uuid_length")]
         self.routeStart: str = routeStart
         self.routeEnd: str = routeEnd
