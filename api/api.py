@@ -36,7 +36,7 @@ class GetNewTrainData(Resource):
         return jsonify({'message': data.get_as_dict()})
     
 class GetAllTrainData(Resource):
-    def get(self):
+    def get(self, start, end):
         data = database.get_all_train_data()
         response = []
         for i in data:
@@ -48,7 +48,7 @@ class GetAllTrainData(Resource):
 
 api.add_resource(Square, '/square/<int:num>')
 api.add_resource(GetNewTrainData, '/getnewtraindata')
-api.add_resource(GetAllTrainData, '/getalltraindata')
+api.add_resource(GetAllTrainData, '/getalltraindata/<string:start>/<string:end>')
 
 
 # data: utils.TrainObj = utils.TrainObj()

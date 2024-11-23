@@ -7,7 +7,7 @@ const port = 5000
 const getRequests = async (resource) => {
     let response
     try {
-        response = await axios.get(`http://${hostname}:${port}/${resource}`)
+        response = await axios.get(`http://${hostname}:${port}/getTrainData/${resource}`)
     } catch (error) {
         console.error('Error making GET request:', error);
         throw new Error('Error making GET request:', error)
